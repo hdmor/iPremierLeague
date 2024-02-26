@@ -2,6 +2,7 @@ package m.eight.ipl.data.source.remote.dto.matches
 
 
 import com.google.gson.annotations.SerializedName
+import m.eight.ipl.domain.model.Team
 
 data class HomeTeamDto(
     @SerializedName("crest")
@@ -15,3 +16,5 @@ data class HomeTeamDto(
     @SerializedName("tla")
     val tla: String
 )
+
+fun HomeTeamDto.toTeam(): Team = Team(id = id, name = name, shortName = shortName, tla = tla, crest = crest)

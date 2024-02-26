@@ -4,6 +4,7 @@ package m.eight.ipl.data.source.remote.dto.matches
 import com.google.gson.annotations.SerializedName
 import m.eight.ipl.data.source.remote.dto.seasons.AreaDto
 import m.eight.ipl.data.source.remote.dto.seasons.SeasonDto
+import m.eight.ipl.domain.model.Match
 
 data class MatchDto(
     @SerializedName("area")
@@ -37,3 +38,6 @@ data class MatchDto(
     @SerializedName("utcDate")
     val utcDate: String
 )
+
+fun MatchDto.toMatch(): Match =
+    Match(id, utcDate, status, lastUpdated, homeTeamDto.toTeam(), awayTeamDto.toTeam(), scoreDto.toScore(), referees.map { it.toReferee() })

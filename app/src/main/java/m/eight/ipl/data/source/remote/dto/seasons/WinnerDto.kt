@@ -2,6 +2,7 @@ package m.eight.ipl.data.source.remote.dto.seasons
 
 
 import com.google.gson.annotations.SerializedName
+import m.eight.ipl.domain.model.Champion
 
 data class WinnerDto(
     @SerializedName("address")
@@ -27,3 +28,18 @@ data class WinnerDto(
     @SerializedName("website")
     val website: String
 )
+
+fun WinnerDto.toChampion(): Champion =
+    Champion(
+        address = address,
+        clubColors = clubColors,
+        crest = crest,
+        founded = founded,
+        id = id,
+        lastUpdated = lastUpdated,
+        name = name,
+        shortName = shortName,
+        tla = tla,
+        venue = venue,
+        website = website
+    )

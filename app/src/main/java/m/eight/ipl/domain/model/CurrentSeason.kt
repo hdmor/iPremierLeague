@@ -5,5 +5,5 @@ data class CurrentSeason(
     val endDate: String,
     val id: Int,
     val startDate: String,
-    val winner: Champion? = null
+    val champion: Champion? = null
 )

@@ -2,6 +2,7 @@ package m.eight.ipl.data.source.remote.dto.standings
 
 
 import com.google.gson.annotations.SerializedName
+import m.eight.ipl.domain.model.Standing
 
 data class TableDto(
     @SerializedName("draw")
@@ -27,3 +28,6 @@ data class TableDto(
     @SerializedName("won")
     val won: Int
 )
+
+fun TableDto.toStanding(): Standing =
+    Standing(position, teamDto.toTeam(), playedGames, form, won, draw, lost, points, goalsFor, goalsAgainst, goalDifference)
