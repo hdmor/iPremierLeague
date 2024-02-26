@@ -1,4 +1,4 @@
-package m.eight.ipl
+package m.eight.ipl.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import m.eight.ipl.ui.theme.IPLTheme
+import m.eight.ipl.presentation.ui.theme.IPLTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

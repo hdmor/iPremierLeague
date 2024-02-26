@@ -1,4 +1,4 @@
-package m.eight.ipl.ui.theme
+package m.eight.ipl.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
