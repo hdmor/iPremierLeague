@@ -25,7 +25,7 @@ data class MatchDto(
     @SerializedName("odds")
     val oddsDto: OddsDto,
     @SerializedName("referees")
-    val referees: List<Any>,
+    val referees: List<RefereeDto>,
     @SerializedName("score")
     val scoreDto: ScoreDto,
     @SerializedName("season")

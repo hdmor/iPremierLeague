@@ -4,6 +4,7 @@ package m.eight.ipl.data.source.remote.dto.standings
 import com.google.gson.annotations.SerializedName
 import m.eight.ipl.data.source.remote.dto.matches.CompetitionDto
 import m.eight.ipl.data.source.remote.dto.matches.FiltersDto
+import m.eight.ipl.data.source.remote.dto.seasons.AreaDto
 import m.eight.ipl.data.source.remote.dto.seasons.SeasonDto
 
 data class StandingsDto(
@@ -16,5 +17,5 @@ data class StandingsDto(
     @SerializedName("season")
     val season: SeasonDto,
     @SerializedName("standings")
-    val standingDtos: List<StandingDto>
+    val standingsDto: List<StandingDto>
 )

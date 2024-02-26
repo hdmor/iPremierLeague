@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class HalfTimeDto(
     @SerializedName("away")
-    val away: Any?,
+    val away: Int?,
     @SerializedName("home")
-    val home: Any?
+    val home: Int?
 )
