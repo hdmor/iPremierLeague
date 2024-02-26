@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class StandingDto(
     @SerializedName("group")
-    val group: Any,
+    val group: Any?,
     @SerializedName("stage")
     val stage: String,
     @SerializedName("table")

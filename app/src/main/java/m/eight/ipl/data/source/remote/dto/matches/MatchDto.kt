@@ -13,7 +13,7 @@ data class MatchDto(
     @SerializedName("competition")
     val competitionDto: CompetitionDto,
     @SerializedName("group")
-    val group: Any,
+    val group: Any?,
     @SerializedName("homeTeam")
     val homeTeamDto: HomeTeamDto,
     @SerializedName("id")

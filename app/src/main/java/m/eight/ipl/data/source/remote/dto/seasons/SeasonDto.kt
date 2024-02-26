@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class SeasonDto(
     @SerializedName("currentMatchday")
-    val currentMatchday: Int,
+    val currentMatchday: Int?,
     @SerializedName("endDate")
     val endDate: String,
     @SerializedName("id")
@@ -13,5 +13,5 @@ data class SeasonDto(
     @SerializedName("startDate")
     val startDate: String,
     @SerializedName("winner")
-    val winnerDto: WinnerDto
+    val winnerDto: WinnerDto?
 )

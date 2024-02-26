@@ -13,5 +13,5 @@ data class CurrentSeasonDto(
     @SerializedName("startDate")
     val startDate: String,
     @SerializedName("winner")
-    val winner: Any
+    val winner: WinnerDto?
 )
