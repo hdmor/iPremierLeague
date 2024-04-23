@@ -2,6 +2,7 @@ package m.eight.ipl.data.source.remote.dto.matches
 
 
 import com.google.gson.annotations.SerializedName
+import m.eight.ipl.domain.model.Match
 
 data class MatchesDto(
     @SerializedName("competition")
@@ -13,3 +14,5 @@ data class MatchesDto(
     @SerializedName("resultSet")
     val resultSetDto: ResultSetDto
 )
+
+fun MatchesDto.toMatches(): List<Match> = matches.map { it.toMatch() }
