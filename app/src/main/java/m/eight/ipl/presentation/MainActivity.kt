@@ -48,15 +48,16 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             IPLTheme {
-
                 val viewModel: CurrentSeasonViewModel = hiltViewModel()
                 val state = viewModel.state.value
+
                 val navController = rememberNavController()
+                val currentBackStackEntry by navController.currentBackStackEntryAsState()
+
                 var scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
                 val configuration = LocalConfiguration.current
                 if (configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
                 val snackBarHostState = remember { SnackbarHostState() }
-                val currentBackStackEntry by navController.currentBackStackEntryAsState()
 
                 Scaffold(
                     modifier = Modifier.fillMaxSize().nestedScroll(scrollBehavior.nestedScrollConnection),
@@ -64,9 +65,8 @@ class MainActivity : ComponentActivity() {
                         TopAppBar(
                             title = {
                                 FlowRow(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-
                                     if (currentBackStackEntry?.destination?.route?.contains(Screens.TableScreen.route) == true)
-                                        Button(onClick = { /*TODO*/ }) { Text(text = "Table") }
+                                        Button(onClick = {}) { Text(text = "Table") }
                                     else OutlinedButton(
                                         onClick = {
                                             if (state.startDate.isNotEmpty() && state.currentMatchDay > 0)
@@ -74,7 +74,7 @@ class MainActivity : ComponentActivity() {
                                         }
                                     ) { Text(text = "Table") }
                                     if (currentBackStackEntry?.destination?.route?.contains(Screens.MatchesScreen.route) == true)
-                                        Button(onClick = { /*Todo*/ }) { Text(text = "Matches") }
+                                        Button(onClick = {}) { Text(text = "Matches") }
                                     else OutlinedButton(
                                         onClick = {
                                             if (state.currentMatchDay > 0)
@@ -88,12 +88,10 @@ class MainActivity : ComponentActivity() {
                     },
                     snackbarHost = { SnackbarHost(hostState = snackBarHostState) }
                 ) { paddingValues ->
+
                     Box(modifier = Modifier.fillMaxSize().padding(paddingValues)) {
                         HorizontalDivider()
-                        NavHost(
-                            navController = navController,
-                            startDestination = Screens.TableScreen.route + "/{startDate}/{currentMatchDay}"
-                        ) {
+                        NavHost(navController = navController, startDestination = Screens.TableScreen.route + "/{startDate}/{currentMatchDay}") {
                             composable(
                                 route = Screens.TableScreen.route + "/{startDate}/{currentMatchDay}",
                                 arguments = listOf(
@@ -115,6 +113,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
 
 sealed class Screens(val route: String) {
     data object MatchesScreen : Screens("matches")

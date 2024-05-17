@@ -51,6 +51,7 @@ import m.eight.ipl.R
 fun StandingsScreen(viewModel: StandingsViewModel = hiltViewModel()) {
 
     val state = viewModel.state.value
+
     if (state.isLoading) Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) { CircularProgressIndicator() }
     if (state.standings.isNotEmpty()) {
         Column(modifier = Modifier.fillMaxSize()) {
@@ -66,19 +67,14 @@ fun StandingsScreen(viewModel: StandingsViewModel = hiltViewModel()) {
                     ) {
                         Text(text = "Club")
                         Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
-                            Text(text = "MP", modifier = Modifier.width(30.dp), textAlign = TextAlign.Center)
-                            Text(text = "W", modifier = Modifier.width(30.dp), textAlign = TextAlign.Center)
-                            Text(text = "D", modifier = Modifier.width(30.dp), textAlign = TextAlign.Center)
-                            Text(text = "L", modifier = Modifier.width(30.dp), textAlign = TextAlign.Center)
-                            Text(text = "GF", modifier = Modifier.width(30.dp), textAlign = TextAlign.Center)
-                            Text(text = "GA", modifier = Modifier.width(30.dp), textAlign = TextAlign.Center)
-                            Text(text = "GD", modifier = Modifier.width(30.dp), textAlign = TextAlign.Center)
-                            Text(
-                                text = "Pts",
-                                fontWeight = FontWeight.SemiBold,
-                                modifier = Modifier.width(30.dp),
-                                textAlign = TextAlign.Center
-                            )
+                            CustomText(text = "MP")
+                            CustomText(text = "W")
+                            CustomText(text = "D")
+                            CustomText(text = "L")
+                            CustomText(text = "GF")
+                            CustomText(text = "GA")
+                            CustomText(text = "GD")
+                            CustomText(text = "Pts", fontWeight = FontWeight.SemiBold)
                             Text(text = "Last 5", modifier = Modifier.width(100.dp), textAlign = TextAlign.Center)
                         }
                     }
@@ -113,47 +109,14 @@ fun StandingsScreen(viewModel: StandingsViewModel = hiltViewModel()) {
                                     horizontalArrangement = Arrangement.spacedBy(8.dp),
                                     verticalAlignment = Alignment.CenterVertically
                                 ) {
-                                    Text(
-                                        text = standing.playedGames.toString(),
-                                        modifier = Modifier.width(30.dp),
-                                        textAlign = TextAlign.Center
-                                    )
-                                    Text(
-                                        text = standing.won.toString(),
-                                        modifier = Modifier.width(30.dp),
-                                        textAlign = TextAlign.Center
-                                    )
-                                    Text(
-                                        text = standing.draw.toString(),
-                                        modifier = Modifier.width(30.dp),
-                                        textAlign = TextAlign.Center
-                                    )
-                                    Text(
-                                        text = standing.lost.toString(),
-                                        modifier = Modifier.width(30.dp),
-                                        textAlign = TextAlign.Center
-                                    )
-                                    Text(
-                                        text = standing.goalsFor.toString(),
-                                        modifier = Modifier.width(30.dp),
-                                        textAlign = TextAlign.Center
-                                    )
-                                    Text(
-                                        text = standing.goalsAgainst.toString(),
-                                        modifier = Modifier.width(30.dp),
-                                        textAlign = TextAlign.Center
-                                    )
-                                    Text(
-                                        text = standing.goalDifference.toString(),
-                                        modifier = Modifier.width(30.dp),
-                                        textAlign = TextAlign.Center
-                                    )
-                                    Text(
-                                        text = standing.points.toString(),
-                                        fontWeight = FontWeight.SemiBold,
-                                        modifier = Modifier.width(30.dp),
-                                        textAlign = TextAlign.Center
-                                    )
+                                    CustomText(text = standing.playedGames.toString())
+                                    CustomText(text = standing.won.toString())
+                                    CustomText(text = standing.draw.toString())
+                                    CustomText(text = standing.lost.toString())
+                                    CustomText(text = standing.goalsFor.toString())
+                                    CustomText(text = standing.goalsAgainst.toString())
+                                    CustomText(text = standing.goalDifference.toString())
+                                    CustomText(text = standing.points.toString(), fontWeight = FontWeight.SemiBold)
                                     Row(
                                         modifier = Modifier.width(100.dp),
                                         horizontalArrangement = Arrangement.spacedBy(4.dp),
@@ -232,19 +195,14 @@ fun StandingsScreen(viewModel: StandingsViewModel = hiltViewModel()) {
                                     horizontalArrangement = Arrangement.spacedBy(8.dp),
                                     verticalAlignment = Alignment.CenterVertically
                                 ) {
-                                    Text(text = "MP", modifier = Modifier.width(30.dp), textAlign = TextAlign.Center)
-                                    Text(text = "W", modifier = Modifier.width(30.dp), textAlign = TextAlign.Center)
-                                    Text(text = "D", modifier = Modifier.width(30.dp), textAlign = TextAlign.Center)
-                                    Text(text = "L", modifier = Modifier.width(30.dp), textAlign = TextAlign.Center)
-                                    Text(text = "GF", modifier = Modifier.width(30.dp), textAlign = TextAlign.Center)
-                                    Text(text = "GA", modifier = Modifier.width(30.dp), textAlign = TextAlign.Center)
-                                    Text(text = "GD", modifier = Modifier.width(30.dp), textAlign = TextAlign.Center)
-                                    Text(
-                                        text = "Pts",
-                                        fontWeight = FontWeight.SemiBold,
-                                        modifier = Modifier.width(30.dp),
-                                        textAlign = TextAlign.Center
-                                    )
+                                    CustomText(text = "MP")
+                                    CustomText(text = "W")
+                                    CustomText(text = "D")
+                                    CustomText(text = "L")
+                                    CustomText(text = "GF")
+                                    CustomText(text = "GA")
+                                    CustomText(text = "GD")
+                                    CustomText(text = "Pts", fontWeight = FontWeight.SemiBold)
                                     Text(text = "Last 5", modifier = Modifier.width(100.dp), textAlign = TextAlign.Center)
                                 }
                                 Spacer(modifier = Modifier.height(8.dp))
@@ -256,47 +214,14 @@ fun StandingsScreen(viewModel: StandingsViewModel = hiltViewModel()) {
                                     horizontalArrangement = Arrangement.spacedBy(8.dp),
                                     verticalAlignment = Alignment.CenterVertically
                                 ) {
-                                    Text(
-                                        text = standing.playedGames.toString(),
-                                        modifier = Modifier.width(30.dp),
-                                        textAlign = TextAlign.Center
-                                    )
-                                    Text(
-                                        text = standing.won.toString(),
-                                        modifier = Modifier.width(30.dp),
-                                        textAlign = TextAlign.Center
-                                    )
-                                    Text(
-                                        text = standing.draw.toString(),
-                                        modifier = Modifier.width(30.dp),
-                                        textAlign = TextAlign.Center
-                                    )
-                                    Text(
-                                        text = standing.lost.toString(),
-                                        modifier = Modifier.width(30.dp),
-                                        textAlign = TextAlign.Center
-                                    )
-                                    Text(
-                                        text = standing.goalsFor.toString(),
-                                        modifier = Modifier.width(30.dp),
-                                        textAlign = TextAlign.Center
-                                    )
-                                    Text(
-                                        text = standing.goalsAgainst.toString(),
-                                        modifier = Modifier.width(30.dp),
-                                        textAlign = TextAlign.Center
-                                    )
-                                    Text(
-                                        text = standing.goalDifference.toString(),
-                                        modifier = Modifier.width(30.dp),
-                                        textAlign = TextAlign.Center
-                                    )
-                                    Text(
-                                        text = standing.points.toString(),
-                                        fontWeight = FontWeight.SemiBold,
-                                        modifier = Modifier.width(30.dp),
-                                        textAlign = TextAlign.Center
-                                    )
+                                    CustomText(text = standing.playedGames.toString())
+                                    CustomText(text = standing.won.toString())
+                                    CustomText(text = standing.draw.toString())
+                                    CustomText(text = standing.lost.toString())
+                                    CustomText(text = standing.goalsFor.toString())
+                                    CustomText(text = standing.goalsAgainst.toString())
+                                    CustomText(text = standing.goalDifference.toString())
+                                    CustomText(text = standing.points.toString(), fontWeight = FontWeight.SemiBold)
                                     Row(
                                         modifier = Modifier.width(100.dp),
                                         horizontalArrangement = Arrangement.spacedBy(4.dp),
@@ -325,4 +250,9 @@ fun StandingsScreen(viewModel: StandingsViewModel = hiltViewModel()) {
             }
         }
     }
+}
+
+@Composable
+private fun CustomText(text: String, fontWeight: FontWeight? = null) {
+    Text(text = text, modifier = Modifier.width(30.dp), fontWeight = fontWeight, textAlign = TextAlign.Center)
 }
